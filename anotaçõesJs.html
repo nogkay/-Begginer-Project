@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"> <title>Aula1</title> <rel="stylesheet"></rel>
+
+</head>
+<body>
+<div>
+</div>
+</body>
+<script>
+    /*let nome = "Matheus"
+    console.log("Bomdia",nome) Aqui tenho um exemplo de como eu posso criar uma variavel e chamar ela pelo console>
+    detalhe importante é na parte do console, onde o Bomdia deve ser string ou seja ter "" e usar , e chamar a variavel
+    nome. */
+
+    //----------------------------------------------------------------------------------------------------------------------//
+
+
+   //var nome = window.prompt("Qual seu nome?")
+              // window.alert("Prazer! " + nome) 
+
+              //Aqui o windowprompt está guardando a informação dentro da variavel nome,
+   //isso serve para quando quero dar um valor a uma variavel depois de uma interação e responder com algo
+   // ao utilizar o + estou fazendo a concatenação
+   //aqui não se usa , depois do Prazer! pois não aparecerá, isso geralmente é mais quando se usa console.log
+
+    //----------------------------------------------------------------------------------------------------------------------//
+
+        //var n1 = window.prompt("Digite um número! ")
+        // var n2 = window.prompt("Digite outro número! ")
+         //var soma = n1 + n2
+        //window.alert("O resultado é " + soma)
+
+        // Cuidado aqui pois o + serve para adição e concatenação
+        // aqui o + ta somando as duas string que receber de n1 e n2 pois o prompt converte numero para string
+        // para resolver este problema temos que converter string para número usando Number.parseInt() e Number.parseFloat()
+
+        // var n1 = Number.parseInt(window.prompt("Digite um número! "))
+        // var n2 = parseInt(window.prompt("Digite outro número! "))
+        // var soma = n1 + n2
+
+        // window.alert("O resultado é " + soma)
+
+        // //Aqui o  valor está resolvido através deste dois comandos
+        // Repare que parseInt mantem funcionando pois tanto faz ser Number.parserInt ou só parseInt
+        // Usando o parseFloat() ficaria
+
+        // var n1 = Number.parseFloat(window.prompt("Digite um número! "))
+        // var n2 = parseFloat(window.prompt("Digite outro número! "))
+        // var soma = n1 + n2
+
+        // window.alert("O resultado é " + soma)
+
+        // O parseFloat foi usado por conta que ele serve para a soma de números reais no caso com .
+        // Exemplo: 5.5 + 2 = 7.5, se fosse o parserInt ele não consideraria o .5 e sim somente o primeiro 5
+        // Nos dias atuais se usa somente Number() pois ele faz o resto do trabalho
+
+     //----------------------------------------------------------------------------------------------------------------------//
+
+        // Nos dias atuais do Javascript para fazer a concantenação nós utilizamos agora ${} para isso um exemplo disso é
+        //   var n1 = 2
+        //  var n2 = 3
+        //  var s = n1 + n2
+        //  window.alert(`a soma entre ${n1} e ${n2} é ${s}`)//Detalhe importante, sempre que for utilizar ${} devemos por entre crase
+        
+     //----------------------------------------------------------------------------------------------------------------------//
+
+        // var nome = "Matheus"
+        // document.writeln(`Olá, ${nome} o seu nome tem ${nome.toUpperCase()} letras`)
+
+        // Aqui a gente consegue fazer o uso de atributos do Javascript
+        // o .length ele serve para dizer o tanto de caracteres que possui.
+        // o .toUpperCase() ele serve para deixar em maiusculo.
+        // o .toLowerCase() ele serve para deixar em minusculo.
+        // Como são atributos a gente deve colocar a variavel e depois o atributo
+        // nas crases.
+    
+     //----------------------------------------------------------------------------------------------------------------------//
+
+        // Ordem de precedência com operadores aritméticos
+        // var soma = 4 + 2 //6
+        // var subt = soma - 2 //4
+        // var multi = subt * 2 //8
+        // var divisao = multi / 4 // 2
+        // document.write(`Somando ${soma}, subtraindo${subt}, multiplicando${multi}, dividindo${divisao},`)
+        // Aqui tenho pratica com operadores aritmeticos
+     
+       //var nome = window.prompt('Qual o seu nome?')
+        // var peso = window.prompt('Qual o seu peso?')
+       //var conversao = peso
+        // window.alert(`O lutador ${nome.toUpperCase()} está pesando ${conversao}kgs`)
+           
+         // var muay = Number(window.prompt('Quantas horas voce treina muaythai?'))
+        // var boxe = Number(window.prompt('Quantas horas você treina boxe?'))
+         // var jj = Number(window.prompt('Quantas horas você treina jj?'))
+         // var totaldeh = muay + boxe + jj
+         //var media = totaldeh / 3
+        //  window.alert(`Você treina por esse total de horas aqui ${media.toFixed(1)}`)
+        // o .toFixed ele serve para controlar quantas casas decimais vão ficar depois da vírgula
+ //----------------------------------------------------------------------------------------------------------------------//
+      // Operadores de atribuição simples(Aritmeticos)
+      // ** (Elevado á algo)
+      // % (Resto de divisão)
+      // + (soma)
+      // - (subtração)
+      // * (multi)
+      // / (divisão)
+      // Operadores Relacionais
+      // >	Maior que	5 > 2 → true
+      // <	Menor que	7 < 3 → false
+      // >=	Maior ou igual a	8 >= 8 → true
+      // <=	Menor ou igual a	9 <= 5 → false
+     // ==	Igual a (valor)	5 == 5 → true
+      // !=	Diferente de	5 != 3 → true
+      // === este vai dizer se são iguais por tipo e por si só exemplo
+      // 5 === "5" --> aqui o 5 é diferente de "5" pois tem um string e o outro nao ou seja o valor é false booleano
+
+      // Operadores lógicos
+      //1. Operador ! (Negação / NOT)
+//Ele é o "teimoso". Ele simplesmente inverte o valor booleano. Se algo é true, ele transforma em false, e vice-versa.
+
+//Sinal: !
+
+//Exemplo:
+
+//JavaScript
+//let ferido = false;
+//console.log(!ferido); // O resultado será true (ele não está ferido)
+//Dica: Na programação, usamos muito o !true para verificar se algo não aconteceu.
+
+//2. Operador && (Conjunção / AND)
+//Este é o mais rigoroso. Para que o resultado final seja VERDADE, todas as condições precisam ser verdadeiras. Se uma única for falsa, tudo desmorona.
+
+//Sinal: &&
+
+//Analogia do Treino: Para você lutar um campeonato, você precisa:
+
+//Ter pago a inscrição (true)
+
+//E bater o peso (true)
+
+//Se um dos dois for false, você não luta.
+
+//Exemplo:
+
+//JavaScript
+//let usuarioCorreto = true;
+//let senhaCorreta = true;
+//let loginEfetuado = usuarioCorreto && senhaCorreta; // true
+//3. Operador || (Disjunção / OR)
+//Este é o "bonzinho". Para que o resultado seja VERDADE, basta que apenas uma das condições seja verdadeira. Ele só será falso se tudo for falso.
+
+//Sinal: || (são dois traços verticais, geralmente ficam do lado do Z ou acima do Enter).
+
+//Analogia da Entrada: Para entrar na academia, você pode:
+
+//Ter a digital cadastrada (true)
+
+//OU o recepcionista abrir a porta para você (true)
+
+//Se qualquer uma das duas acontecer, você entra.
+
+//Exemplo:
+
+//JavaScript
+//let diaDeSemana = true;
+//let feriado = false;
+//let academiaAberta = diaDeSemana || feriado; // true (porque é dia de semana)
+
+//----------------------------------------------------------------------------------------------------------------------//
+//ATIVIDADE//
+
+//var nome = window.prompt('Qual seu nome?')
+//var peso = Number(window.prompt('Qual seu peso?'))
+//var podeLutar = peso <= 66
+//window.alert(`O lutador ${nome} bateu o peso? ${podeLutar}`)
+
+//let usuarioCorreto = true;
+//let temToken = true;
+//console.log("O usuario está com o token em", temToken && usuarioCorreto)
+
+// let idade = 16;
+//let temCertificado = true;
+
+// 1. Criamos a lógica de comparação
+// O parênteses ajuda o JS a entender que essa é a "pergunta"
+//let condicao = (idade >= 18 || temCertificado === true);
+
+// 2. Usamos o Operador Ternário para dar a resposta
+// estrutura: condicao ? se_verdade : se_falso
+//let resultado = condicao ? "Pode se candidatar" : "Não pode se candidatar";
+
+//window.alert(resultado);
+
+//----------------------------------------------------------------------------------------------------------------------//
+
+//IF E ELSE
+//condições_ANOTAÇÃO)
+//let peso = 61
+//if(peso <= 60){
+   // console.log(`Você pode lutar`)
+//}else{
+   // console.log(`Você não pode lutar`)
+
+//}
+//Aqui a gente tem uma pequena introdução de como funcionará o if e o else e também o else if(é a condição da condição digamos assim)
+//o if vai ter uma condição que no caso fica no parentese dele e no bloco dele a gente vai poder colocar o que acontecerá após essa condição dada
+// o else é caso a condição seja negativa
+//Nesse caso foi uma condição composta, na condição simples não vai se fazer o uso do else apenas o if
+//let nome = window.prompt(`Qual seu nome?`)
+//let idade = Number(window.prompt(`Qual sua idade?`))
+//let peso = Number(window.prompt(`Qual seu peso?`))
+//let mensalidade = window.confirm(`Pagou a mensalidade?`)
+//if(peso <= 60 == true){
+ //  let categoria = `Peso Leve`
+ //  let luta = (peso <= 60 && mensalidade == true && idade >= 18) ? `Leve` : `Pesado`
+ //  window.alert(`O lutador ${nome} tem ${idade} anos, pesa ${peso}kg, está na categoria ${categoria} e pode lutar ${luta}`)  
+//}
+
+
+
+</script> 
+
+
+
+
+
+</html>
