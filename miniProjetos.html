@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="PT-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Mini Projetos Meus</title>
-    <link rel="stylesheet">
-</head>
-<body>
-    <script>
-        /* ===================== BANCO DE DADOS DO SISTEMA ============= */
+   <!DOCTYPE html>
+  <html lang="PT-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mini Projetos Meus</title>
+        <link rel="stylesheet">
+        </head>
+        <body>
+            <script>
+                   /* ===================== BANCO DE DADOS DO SISTEMA ============= */
 
 const categoria = ["Pena","Galo","Leve Pesado","Meio Pesado"];
-const pesosExatos = [50,60,70,75];
+const pesosMinimos = [50, 60, 75,85];
+const pesosMaximos = [59, 74, 84 ,85];
 const idades = [16,17,18,19,20];
 const verificarPagamento = ["Cartão de Crédito","Boleto","Pix"];
 
@@ -19,8 +20,8 @@ const verificarPagamento = ["Cartão de Crédito","Boleto","Pix"];
 function baterPeso(){
    let pedirPeso = Number(window.prompt("Digite o peso do lutador:"));
    let encontrouCategoria = false;
-   for(let i = 0; i < pesosExatos.length; i++){
-    if(pedirPeso === pesosExatos[i]){
+   for(let i = 0; i < pesosMinimos.length; i++){
+    if(pedirPeso >= pesosMinimos[i] && pedirPeso <= pesosMaximos[i]){
         console.log(`O lutador se encaixa na categoria ${categoria[i]}`);
         encontrouCategoria = true;
         break;
@@ -71,6 +72,6 @@ function iniciarSistema(){
     pagamento();
 }
 iniciarSistema();
-    </script>
-</body>
-</html>
+            </script>
+        </body>
+  </html>
