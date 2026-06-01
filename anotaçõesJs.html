@@ -273,7 +273,119 @@ if (idade < 12) {
     }
 }*/
 
+//function testarResistencia(limite) {
+   // let contador = 1; // Começando em 1 para fazer mais sentido no treino
+   // let metade = limite / 2; // O JS calcula a metade dinamicamente
 
+   // while (contador <= limite) { // Usa o parâmetro limite aqui!
+     //   console.log(`Contador: ${contador}`);
+
+        // O IF ESTÁ DENTRO DO WHILE: Ele testa a cada rodada
+      //  if (contador == metade) {
+     //       console.log("Metade do treino paga! Força!");
+      //  }
+//
+       // contador++; // O incremento logo após o teste
+  //  
+//}
+//testarResistencia(10);
+
+
+
+
+//Neste exercicio nós utilizamos o operador % para identificar os pares e os impares//podendo assim definirmos qual ID é segura ou qual é perigos// a gente fez o uso de function do whil e da condição composta if e else
+//let contadorSec = 1;
+//function analisarAcessos(totalDeAcessos){
+ //     let pareimpar = totalDeAcessos / 2     
+     //while(contadorSec <= totalDeAcessos){
+     //    if(contadorSec  % 2 == 0){
+       //     console.log(`ID VERIFICADO!:SEGURO`)
+       //  }else { 
+           // console.log(`ID VERIFICADO!:PERIGO`)
+       //  }
+  //  contadorSec++; }
+//}analisarAcessos(10) 
+
+
+//Aqui nós fazemos meio que uma pequena tabuada inteligente
+//function gerarTabuada(numero) {
+    //let contador = 1; // Colocando aqui dentro, a função fica isolada e reutilizável por ser escopo local
+
+    //while (contador <= 10) {
+     //   let resultado = contador * numero;
+        
+       // if (resultado >= 50) {
+         //   console.log(`${contador} x ${numero} = ${resultado} - Resultado alto!`);
+       // } else {
+        //    console.log(`${contador} x ${numero} = ${resultado} - O resultado é baixo!`); 
+       // }
+        
+      //  contador++;
+   // }
+//}
+//gerarTabuada(10);
+// DO WHILE// 
+
+/*function iniciarCombate(){
+    let rounds = 1;
+   do {
+      if(rounds==1){
+         console.log(`Round ${rounds} - Lutadores se enfrentam!`); Aqui o do ele vai primeiro executar o bloco do código
+      }else if(rounds==2){
+         console.log(`Round ${rounds} - Cansaço começa a aparecer`); e depois o while que está estabelecendo um limite vai ver se é true ou não
+      }else if(rounds==3){
+         console.log(`Round ${rounds} - Lutadores estão exaustos! É Tudo ou Nada!`); 
+      }
+      rounds++;
+     } while(rounds <= 3);
+   }
+iniciarCombate();*/
+
+
+//ESTRUTURA DE REPETIÇÃO for//
+/*function testarFor(){
+    for(let i = 1; i <= 7; i++){
+        if(i % 2 == 0){
+            console.log(`Número ${i} é par!`);
+        } else {
+            console.log(`Número ${i} é ímpar!`);
+        }
+    }
+}
+testarFor(); */
+
+ /* Aqui em baixo  a gente consegue ter um outro exemplo do uso do for
+ function contarRounds(roundDefinido){
+    for(let round = 1;round <= roundDefinido; round++){
+        console.log(`Round ${round}`);
+    }
+}
+contarRounds(5) */
+
+
+/* Aqui a gente consegue ter um exemplo do uso do for para ler um array
+function listarBandas() {
+    let meusFavoritos = ["Linkin Park", "Nirvana", "Deftones", "Korn"];
+
+    // O loop começa em 0 e vai rodar enquanto for menor que o tamanho do array (4)
+    for (let i = 0; i < meusFavoritos.length; i++) {
+        // O 'i' vai valer 0, depois 1, depois 2, depois 3...
+        console.log(`Banda nº ${i + 1}: ${meusFavoritos[i]}`);
+    }
+}
+
+listarBandas();*/
+
+
+/* O return serve para atribuir o valor de algo para uma função 
+ou seja n1 + 5(10 +5) vai ser a mesma coisa de somandoNumeros()
+porque ele vai passar a valer o resultado da soma ou seja 15
+function somandoNumeros(){
+    let n1 = 10;
+    return n1 + 5;
+}
+let resultado = somandoNumeros();
+console.log(`O resultado da soma é ${resultado}`); */
 </script> 
 
 
