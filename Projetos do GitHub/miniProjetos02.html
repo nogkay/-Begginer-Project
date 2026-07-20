@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+     <head>
+        <meta charset="UTF-8">
+        <title>Mini Projetos</title>
+        <link rel="stylesheet">
+        </head>
+        <body>
+            <script>
+
+                /*=======FILTER DE PEDIDOS LEGÍTIMOS E SUSPEITOS=======*/
+           const pedidosMTG = [
+    { id: 101, cliente: "Matheus", valor: 120, cupom: true, status: "pago" },
+    { id: 102, cliente: "Rodrigo", valor: 550, cupom: false, status: "analise" }, // Valor alto!
+    { id: 103, cliente: "Lucas", valor: 80, cupom: true, status: "recusado" },    // Recusado!
+    { id: 104, cliente: "Gabriel", valor: 300, cupom: false, status: "pago" },
+    { id: 105, cliente: "Ana", valor: 600, cupom: true, status: "pago" }          // Valor alto!
+];
+
+            const pedidosPagos = pedidosMTG.filter((pedido) => pedido.status === "pago");
+
+            const alertasDeFraude = pedidosMTG.filter((pedido) =>{
+                return pedido.valor > 500 && pedido.cupom === false || pedido.status === "recusado"
+            });
+
+            const pedidosComBrinde = pedidosMTG.map((pedido) => {
+                if(pedido.valor > 200){
+                     pedido.brinde = true
+                }else{
+                     pedido.brinde = false
+                }
+
+                return pedido;
+            });
+         console.log(pedidosPagos, alertasDeFraude, pedidosComBrinde);
+            
+
+
+            </script>
+        </body>
+</html>

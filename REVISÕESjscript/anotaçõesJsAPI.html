@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+    <meta charset="UTF-8">
+    <title>Anotações Assíncronas</title>
+    <link rel="stylesheet">
+ </head> 
+ <body>  
+    <script>
+        // 1. O 'async' avisa que a função gerencia tempo assíncrono
+ /* async function buscarDadosInvasao() {
+    console.log("🚨 1. Iniciando o scanner de segurança...");
+
+    // 2. O 'await' FAZ O CÓDIGO ESPERAR a resposta da API pública do GitHub chegar
+    const respostaBruta = await fetch("https://api.github.com/users/uiwill");
+    
+    // 3. O 'await' espera o JavaScript transformar a resposta bruta em dados legíveis (JSON/Objeto)
+    const dadosDoUsuario = await respostaBruta.json();
+
+    console.log("🟢 2. Dados baixados com sucesso do servidor!");
+    
+    // 4. Agora que os dados chegaram, podemos acessar as propriedades dele (como um objeto normal!)
+    console.log(`Nome do Alvo: ${dadosDoUsuario.name}`);
+    console.log(`Bio do Alvo: ${dadosDoUsuario.bio}`);
+}
+
+// Executando a nossa função assíncrona
+buscarDadosInvasao();
+
+console.log("⚡ 3. Olha eu aqui! Rodei sem travar o sistema enquanto o GitHub respondia."); 
+
+
+O async ele transforma a função em uma Promise, Promises são promessas de dados, transformando a função em uma função assíncrona, o await faz com que o código espere a resposta da função assíncrona, sem travar o restante do código.
+O await ele serve para esperar respostas de um tempo assincrono, como uma API, sem travar o restante do codigo
+ou esperar uma resposta modificada como por exemplo, uma resposta legivel usando .json()
+*/
+ 
+
+/* async function buscarEndereco(cep){
+    const reposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+    const dados = await reposta.json();
+    console.log(dados);
+}
+buscarEndereco("61768780"); */
+
+
+ /* async function cadastrarProdutoMTG() {
+    const novoProduto = {
+        nome: "Camiseta Shoegaze Over",
+        preco: 149.90,
+        estoque: 50
+    };
+
+    try {
+        const resposta = await fetch("https://api.mtgstyle.com/produtos", {
+            method: "POST", // Mudamos o verbo de GET para POST
+            headers: {
+                "Content-Type": "application/json" // Avisamos ao servidor que estamos enviando um JSON
+            },
+            body: JSON.stringify(novoProduto) // Transformamos nosso Objeto JS em texto bruto para viajar na rede
+        });
+
+        const resultado = await resposta.json();
+        console.log("Produto cadastrado com sucesso!", resultado);
+    } catch (erro) {
+        console.error("Erro ao cadastrar:", erro);
+    }
+} /* cadastrarProdutoMTG(); */
+
+// Aqui nós temos method, header e body, todos esses fazem parte de como posso organizar meu try para enviar dados
+// Ou para cosntruir um muro para caso tenha um erro
+// throw new Error serve para lançar um erro e o catch vai capturar esse erro e mostrar no console
+
+
+
+  /* async function buscarEnderecoSeguro(cep){
+    try{
+        const pedido = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const dados = await pedido.json();
+        
+        if(dados.erro){
+            throw new Error("CEP inválido!");
+        }
+    } catch (erro) {
+        console.error("Erro ao buscar endereço:", erro);
+    } 
+ } buscarEnderecoSeguro("00000000");// Aqui foi testado com um CEP inválido para ver o tratamento do erro
+ // No uso da API Pública foi pegado o .erro e lançado um erro com throw new Error
+ // Esse .erro é o que a API pública oferece caso tenha um erro envolvido 
+ // a forma correta de se ler é "Javascript veja se dentro do objeto dados existe essa propriedade erro criada pelo ViaCEP
+ //  se ela existir e for true ela entra no if" */
+
+ /* async function carregarDados() {
+    try {
+        // 1. Liga o "Carregando..." na tela
+        mostrarLoading(true); 
+        const dados = await fetch("https://api.com/dados");
+    } catch (erro) {
+        console.log("Deu ruim!");
+    } finally {
+        // 2. Não importa o que aconteceu, desliga o "Carregando..."
+        mostrarLoading(false); 
+    }
+} // Aqui a gente tem a esttrutura da ópera no caso a estruturad o try(tente da certo) catch(caso de erro) finally(aconteça o que acontecer faça isso) */
+  /* async function algumaGarotaQueMeAme(){
+    let carregando = true;
+    try{
+        const pedido = await fetch("https://api.github.com/users/garota-que-nao-existe-123456");
+        const dados = await pedido.json();
+        if(pedido.status === 404){
+            throw new Error("Garota não encontrada!");
+        }
+    } catch (erro) {
+        console.error("Boa sorte na proxima betinha:", erro);
+    }finally{
+        carregando = false;
+        console.log("Processo encerrado. Sistema pronto para beber cerveja", carregando);
+    }
+}algumaGarotaQueMeAme(); */
+
+ /* const CEP_HUB = "https://viacep.com.br/ws/01001000/json/";
+const GIT_HUB = "https://api.github.com/users/uiwill";
+
+async function sincronizarDados() {
+          try{
+             const [respostaCep, respostaGit] = await Promise.all([
+            fetch(CEP_HUB),
+            fetch(GIT_HUB)
+        ])
+        const [dadosCep, dadosGit] = await Promise.all([
+            respostaCep.json(),
+            respostaGit.json()
+        ]);
+        console.log("Dados do CEP:", dadosCep);
+        console.log("Dados do GitHub:", dadosGit);
+    } catch(erro){
+        console.error("Erro ao sincronizar dados:", erro);
+    }
+} sincronizarDados() */
+// Aqui temos exemplo de como podemos utilizar o promise.all() ele serve para que possamos rodar mais de um pedido sem atraso
+// Para isso criamos uma const para o link e depois uma const com array de resposta e de dados e usamos o promise.all()
+//Nunca devemos nos esquecer de utilizar o catch pra blindar o código tratando erros
+
+ /* const CEP_HUB = "https://viacep.com.br/ws/01001000/json/";
+const GIT_HUB = "https://api.github.com/users/nogkay";
+async function processarCheckout(cepCliente, usuarioGithub){
+            try{
+                const [respostaCeP, respostaGit] = await Promise.all([
+                    fetch(`https://viacep.com.br/ws/01001000/json/`),
+                    fetch(`https://api.github.com/users/nogkay`)
+                ])
+                const [dadosCep, dadosGit] = await Promise.all([
+                    respostaCeP.json(),
+                    respostaGit.json()
+                ])
+                if(respostaGit.status === 404){
+                    throw new Error("Usuário do GitHub não encontrado!");
+                } else if(dadosCep.erro){  
+                    throw new Error("CEP inválido!");
+                }
+                   
+                  else if(respostaCeP.uf === "SP" && dadosGit.public_repos > 0){
+                    console.log("Checkout aprovado! Enviando para o pagamento...");
+                } else {
+                    console.log("Checkout negado! Condições não atendidas.");
+                
+                } 
+            } catch(erro){
+                console.error("🚨 Falha no Checkout:", erro.message)
+            }
+}processarCheckout("01001000", "nogkay"); */ //Aqui foi uma prova que pedi para a IA fazer para mim
+// Ela me deu umas correções sobre o else if, que nao era pra ter usado ele e sim o if mas disse que a logica estava certa
+// So errei nessa parte
+
+// Para ver se eu estava entendendo e se ja tava na hora de ir para o DOM ( Document Object Model)
+
+
+
+
+    </script> 
+ </body>  
+</html>

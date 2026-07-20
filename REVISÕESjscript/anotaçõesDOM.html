@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+    <meta charset="UTF-8">
+    <title>Anotações DOM</title>
+    <link rel="stylesheet">
+ </head> 
+ <body>  
+    <h1>Buscador de Desenvolvedores</h1>
+    
+    <!-- O campo de texto com o ID que o JS procura -->
+    <input type="text" id="input-github" placeholder="Digite o usuário do GitHub">
+    
+    <!-- O botão com o ID que o JS monitora o clique -->
+    <button id="btn-buscar">Buscar Dev</button>
+
+    <!-- A div vazia com o ID onde o JS vai injetar o resultado ou o erro -->
+    <div id="resultado"></div>
+
+   
+    
+    <script>
+
+/* ================== DOM ========================= */
+
+
+       
+const botaoBuscar = document.querySelector("#btn-buscar");
+const inputUsuario = document.querySelector("#input-github");
+const areaResultado = document.querySelector("#resultado");
+
+// 
+async function buscarDevNoGithub() {
+    // Pegar o valor exato que o usuário digitou no campo de texto (.value)
+    const nomeUsuario = inputUsuario.value; 
+
+    try {
+        areaResultado.innerText = "Carregando dados..."; // Efeito de loading básico
+
+        const resposta = await fetch(`https://api.github.com/users/${nomeUsuario}`);
+        
+        if (resposta.status === 404) {
+            throw new Error("Dev não encontrado no sistema!");
+        }
+
+        const dados = await resposta.json();
+
+        
+        areaResultado.innerHTML = `
+            <div class="perfil-card">
+                <img src="${dados.avatar_url}" alt="Foto de perfil" width="100">
+                <h2>${dados.name || nomeUsuario}</h2>
+                <p>Repositórios públicos: ${dados.public_repos}</p>
+            </div>
+        `;
+
+    } catch (erro) {
+
+        areaResultado.innerHTML = `<p style="color: red;">🚨 ${erro.message}</p>`;
+    }
+}
+
+
+botaoBuscar.addEventListener("click", buscarDevNoGithub);
+    </script>
+   </body>
+   </html>
+  
