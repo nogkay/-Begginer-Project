@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscador Dev</title>
+    
+</head>
+<body>
+
+    <h1>Buscador de Desenvolvedores</h1>
+    
+    <input type="text" id="input-github" placeholder="Digite o usuário do GitHub">
+    <button id="btn-buscar">Buscar Dev</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        const botaoBuscar = document.querySelector("#btn-buscar");
+        const inputUsuario = document.querySelector("#input-github");
+        const areaResultado = document.querySelector("#resultado");
+
+        async function buscarDevNoGithub() {
+            const nomeUsuario = inputUsuario.value; 
+
+            try {
+                areaResultado.innerText = "Carregando dados..."; 
+
+                const resposta = await fetch(`https://api.github.com/users/${nomeUsuario}`);
+                
+                if (resposta.status === 404) {
+                    throw new Error("Dev não encontrado no sistema!");
+                }
+
+                const dados = await resposta.json();
+
+                areaResultado.innerHTML = `
+                    <div class="perfil-card">
+                        <img src="${dados.avatar_url}" alt="Foto de perfil" width="100">
+                        <h2>${dados.name || nomeUsuario}</h2>
+                        <p>Repositórios públicos: ${dados.public_repos}</p>
+                        <p>Seguidores: ${dados.followers}</p>
+                        <p> Biografia: ${dados.bio}</p>
+                    </div>
+                `;
+
+            } catch (erro) {
+                areaResultado.innerHTML = `<p style="color: red;">🚨 ${erro.message}</p>`;
+            }
+        }
+
+        botaoBuscar.addEventListener("click", buscarDevNoGithub); 
+        inputUsuario.addEventListener("keydown", function(evento){
+            if(evento.key === "Enter"){
+                buscarDevNoGithub();
+            }
+        })
+    </script>
+</body>
+</html>

@@ -53,7 +53,7 @@ buscarEndereco("61768780"); */
 
     try {
         const resposta = await fetch("https://api.mtgstyle.com/produtos", {
-            method: "POST", // Mudamos o verbo de GET para POST
+            method: "POST", // Mudamos o verbo de GET para POST, GET significa pegar dados, POST significa enviar dados
             headers: {
                 "Content-Type": "application/json" // Avisamos ao servidor que estamos enviando um JSON
             },
