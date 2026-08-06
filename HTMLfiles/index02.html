@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tarefas</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; 
+        }
+        ul { list-style: none; padding: 0; 
+        }
+        li { 
+            background: #f4f4f4; 
+            margin: 8px 0; 
+            padding: 10px; 
+            display: flex; 
+            justify-content: space-between; 
+            width: 300px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Minhas Tarefas</h2>
+    <input type="text" id="nova-tarefa" placeholder="Digite uma tarefa...">
+    <button id="btn-adicionar">Adicionar</button>
+
+    <ul id="lista-tarefas">
+       
+    </ul>
+
+    <script src="../JSfiles/script02.js"></script>
+</body>
+</html>
